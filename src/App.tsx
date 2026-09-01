@@ -6,23 +6,21 @@ import UserDetailsPage from "./pages/Users/UserDetailsPage";
 import TenantsPage from "./pages/Tenants/TenantsPage";
 import TenantDetailsPage from "./pages/Tenants/TenantDetailsPage";
 
-import "./App.css";
-
 function App() {
   return (
     <BrowserRouter basename="/super-admin-dashboard-management">
       <Routes>
-        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/" element={<DashboardPage />} />
 
         <Route path="/users" element={<UsersPage />} />
+
         <Route path="/users/:id" element={<UserDetailsPage />} />
 
         <Route path="/tenants" element={<TenantsPage />} />
+
         <Route path="/tenants/:id" element={<TenantDetailsPage />} />
 
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
-
-        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
