@@ -12,7 +12,7 @@ import {
   updateTenant,
 } from "../../api/tenants.api";
 
-import { tenantDetailsQuery, tenantsQuery } from "../../queries/tenantQueries";
+import { tenantsQuery } from "../../queries/tenantQueries";
 
 import { queryKeys } from "../../queries/queryKeys";
 
@@ -32,7 +32,6 @@ function TenantsPage() {
   });
 
   const [showForm, setShowForm] = useState(false);
-
   const [editingTenant, setEditingTenant] = useState<Tenant | undefined>();
 
   const tenantQuery = useQuery(tenantsQuery(filters));
@@ -96,10 +95,6 @@ function TenantsPage() {
 
   const handleView = (tenantId: number) => {
     navigate(`/tenants/${tenantId}`);
-  };
-
-  const handlePrefetch = (tenantId: number) => {
-    queryClient.prefetchQuery(tenantDetailsQuery(tenantId));
   };
 
   const handleDelete = (tenantId: number) => {

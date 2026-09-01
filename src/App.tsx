@@ -10,7 +10,7 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/super-admin-dashboard-application">
       <Routes>
         <Route path="/dashboard" element={<DashboardPage />} />
 
