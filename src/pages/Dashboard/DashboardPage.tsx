@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 import StatCard from "../../components/dashboard/StatCard";
 import UserStatistics from "../../components/dashboard/UserStatistics";
@@ -12,6 +13,8 @@ import {
 } from "../../queries/analyticsQueries";
 
 function DashboardPage() {
+  const navigate = useNavigate();
+
   const dashboardQuery = useQuery(dashboardStatisticsQuery());
 
   const userStatisticsQueryResult = useQuery(userStatisticsQuery());
@@ -103,6 +106,14 @@ function DashboardPage() {
         </div>
 
         <div className="dashboard-header-actions">
+          <button type="button" onClick={() => navigate("/users")}>
+            Users
+          </button>
+
+          <button type="button" onClick={() => navigate("/tenants")}>
+            Tenants
+          </button>
+
           {isFetching && (
             <span className="dashboard-updating">Updating...</span>
           )}
