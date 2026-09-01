@@ -11,15 +11,16 @@ function App() {
     <BrowserRouter basename="/super-admin-dashboard-management">
       <Routes>
         <Route path="/" element={<DashboardPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
 
         <Route path="/users" element={<UsersPage />} />
+
         <Route path="/users/:id" element={<UserDetailsPage />} />
 
         <Route path="/tenants" element={<TenantsPage />} />
+
         <Route path="/tenants/:id" element={<TenantDetailsPage />} />
 
-        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
